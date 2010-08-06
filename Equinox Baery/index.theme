@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=0.9
+Encoding=UTF-8
+Name=Equinox Baery
+Type=X-GNOME-Metatheme
+Comment=Equinox Baery (based on Equinox Radiance Glass)
+Name[en_US]=Equinox Baery
+
+[X-GNOME-Metatheme]
+GtkTheme=Equinox Baery
+MetacityTheme=Equinox Baery
+IconTheme=elementary-monochrome
+CursorTheme=DMZ-White
