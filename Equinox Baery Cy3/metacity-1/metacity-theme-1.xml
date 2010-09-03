@@ -6,26 +6,18 @@
 	<name>Equinox Baery Cy3</name>
 	<author>Matthieu James</author>
 	<copyright>GPL</copyright>
-	<date>Mar 18, 2010</date>
-	<description>Metacity theme for Human beings !</description>
+	<date>May 05, 2010</date>
+	<description>Gradient title bar with gradient control buttons. Suitable for GTK themes with light panels.</description>
 </info>
-
-<constant name="BorderOffset" value="1"/>
-<constant name="BottomOffset" value="11"/>
-
-<!-- Focused Border = #968a76 -->
-
-<!-- Unfocused Border = #968a76 -->
-
 
 <!-- ####################################################################################################################
      General window layout (geometric stuff)
      #################################################################################################################### -->
-     
+
 <frame_geometry name="frame_geometry_normal" title_scale="medium" rounded_top_left="true" rounded_top_right="true" rounded_bottom_left="true" rounded_bottom_right="true">
-    <distance name="left_width" value="BorderOffset"/>
-    <distance name="right_width" value="BorderOffset"/>
-    <distance name="bottom_height" value="BottomOffset"/>
+    <distance name="left_width" value="1"/>
+    <distance name="right_width" value="1"/>
+    <distance name="bottom_height" value="6"/>
     <distance name="left_titlebar_edge" value="12"/>
     <distance name="right_titlebar_edge" value="12"/>
     <distance name="button_width" value="25"/>
@@ -38,7 +30,7 @@
 <frame_geometry name="frame_geometry_maximized" title_scale="medium" rounded_top_left="false" rounded_top_right="false" rounded_bottom_left="false" rounded_bottom_right="false">
     <distance name="left_width" value="0"/>
     <distance name="right_width" value="0"/>
-    <distance name="bottom_height" value="1"/>
+    <distance name="bottom_height" value="6"/>
     <distance name="left_titlebar_edge" value="6"/>
     <distance name="right_titlebar_edge" value="6"/>
     <distance name="button_width" value="25"/>
@@ -71,149 +63,63 @@
 
 <draw_ops name="title_wo_highlight_corners">
     <!-- Background gradient -->
-    <gradient type="vertical" x="BorderOffset" y="BorderOffset" width="width - (2*BorderOffset)" height="height - BorderOffset">
+    <gradient type="vertical" x="1" y="1" width="width - 2" height="height - 1">
         <color value="shade/gtk:bg[NORMAL]/1.075" />
         <color value="shade/gtk:bg[NORMAL]/1" />
     </gradient>
 
     <!-- Topmost border -->
-    <line color="#968a76" x1="0" x2="width" y1="0" y2="0"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="width" y1="0" y2="0"/>
 
     <!-- Top highlight -->
-    <tint color="#ffffff" alpha="0.35" x="BorderOffset + 5" y="BorderOffset" width="width - 10 - (2 * BorderOffset)" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="BorderOffset + 4" y="BorderOffset" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="width - (2 * BorderOffset) + 2" y="BorderOffset" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.10" x="BorderOffset + 4" y="BorderOffset + 1" width="width - 8 - (2 * BorderOffset)" height="1"/>
+    <tint color="#ffffff" alpha="0.35" x="6" y="1" width="width - 12" height="1"/>
+    <tint color="#ffffff" alpha="0.15" x="5" y="1" width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.15" x="width" y="1" width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.10" x="5" y="2" width="width - 10" height="1"/>
 
     <!-- Upper-left highlight -->
     <!-- Draw each pixel one by one. Again, using <tint> for alpha support. -->
-    <tint color="#ffffff" alpha="0.30" x="BorderOffset + 2" y="BorderOffset + 1"  width="2" height="1"/>
-    <tint color="#ffffff" alpha="0.27" x="BorderOffset + 1" y="BorderOffset + 2"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.24" x="BorderOffset + 1" y="BorderOffset + 3"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.21" x="BorderOffset" y="BorderOffset + 4"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.18" x="BorderOffset" y="BorderOffset + 5"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="BorderOffset" y="BorderOffset + 6"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.12" x="BorderOffset" y="BorderOffset + 7"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.09" x="BorderOffset" y="BorderOffset + 8"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.06" x="BorderOffset" y="BorderOffset + 9" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.03" x="BorderOffset" y="BorderOffset + 10" width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.30" x="3" y="2"  width="2" height="1"/>
+    <tint color="#ffffff" alpha="0.27" x="2" y="3"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.24" x="2" y="4"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.21" x="1" y="5"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.18" x="1" y="6"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.15" x="1" y="7"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.12" x="1" y="8"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.09" x="1" y="9"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.06" x="1" y="10" width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.03" x="1" y="11" width="1" height="1"/>
 
     <!-- Upper-right highlight -->
     <!-- Same as above. -->
-    <tint color="#ffffff" alpha="0.30" x="width - 4 - BorderOffset" y="BorderOffset + 1"  width="2" height="1"/>
-    <tint color="#ffffff" alpha="0.27" x="width - 2 - BorderOffset" y="BorderOffset + 2"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.24" x="width - 2 - BorderOffset" y="BorderOffset + 3"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.21" x="width - 1 - BorderOffset" y="BorderOffset + 4"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.18" x="width - 1 - BorderOffset" y="BorderOffset + 5"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="width - 1 - BorderOffset" y="BorderOffset + 6"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.12" x="width - 1 - BorderOffset" y="BorderOffset + 7"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.09" x="width - 1 - BorderOffset" y="BorderOffset + 8"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.06" x="width - 1 - BorderOffset" y="BorderOffset + 9" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.03" x="width - 1 - BorderOffset" y="BorderOffset + 10" width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.30" x="width - 5" y="2"  width="2" height="1"/>
+    <tint color="#ffffff" alpha="0.27" x="width - 3" y="3"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.24" x="width - 3" y="4"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.21" x="width - 2" y="5"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.18" x="width - 2" y="6"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.15" x="width - 2" y="7"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.12" x="width - 2" y="8"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.09" x="width - 2" y="9"  width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.06" x="width - 2" y="10" width="1" height="1"/>
+    <tint color="#ffffff" alpha="0.03" x="width - 2" y="11" width="1" height="1"/>
 </draw_ops>
 
 <draw_ops name="draw_title">
 	<include name="title_wo_highlight_corners" x="0" y="0" width="width" height="height" />
-	
+
     <!-- Left border -->
-    <line color="#968a76" x1="0" x2="4" y1="1" y2="1"/>
-    <line color="#968a76" x1="0" x2="2" y1="2" y2="2"/>
-    <line color="#968a76" x1="0" x2="1" y1="3" y2="3"/>
-    <line color="#968a76" x1="0" x2="1" y1="4" y2="4"/>
-    <line color="#968a76" x1="0" x2="0" y1="5" y2="90"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="4" y1="1" y2="1"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="2" y1="2" y2="2"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="1" y1="3" y2="3"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="1" y1="4" y2="4"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="0" y1="5" y2="90"/>
 
 	<!-- Right border -->
-    <line color="#968a76" x1="width-1" x2="width-5" y1="1" y2="1"/>
-    <line color="#968a76" x1="width-1" x2="width-3" y1="2" y2="2"/>
-    <line color="#968a76" x1="width-1" x2="width-2" y1="3" y2="3"/>
-    <line color="#968a76" x1="width-1" x2="width-2" y1="4" y2="4"/>
-    <line color="#968a76" x1="width-1" x2="width-1" y1="5" y2="90"/>
-</draw_ops>
-
-<draw_ops name="draw_title_shaded">
-	<include name="title_wo_highlight_corners" x="0" y="0" width="width" height="height" />
-	
-    <!-- Left border -->
-    <line color="#968a76" x1="0" x2="4" y1="1" y2="1"/>
-    <line color="#968a76" x1="0" x2="2" y1="2" y2="2"/>
-    <line color="#968a76" x1="0" x2="1" y1="3" y2="3"/>
-    <line color="#968a76" x1="0" x2="1" y1="4" y2="4"/>
-    <line color="#968a76" x1="0" x2="0" y1="5" y2="90"/>
-
-	<!-- Right border -->
-    <line color="#968a76" x1="width-1" x2="width-5" y1="1" y2="1"/>
-    <line color="#968a76" x1="width-1" x2="width-3" y1="2" y2="2"/>
-    <line color="#968a76" x1="width-1" x2="width-2" y1="3" y2="3"/>
-    <line color="#968a76" x1="width-1" x2="width-2" y1="4" y2="4"/>
-    <line color="#968a76" x1="width-1" x2="width-1" y1="5" y2="90"/>
-</draw_ops>
-
-<draw_ops name="draw_title_inactive">
-    <!-- Background gradient -->
-    <gradient type="vertical" x="BorderOffset" y="BorderOffset" width="width - (2*BorderOffset)" height="height - BorderOffset">
-        <color value="shade/gtk:bg[NORMAL]/1.075" />
-        <color value="shade/gtk:bg[NORMAL]/1" />
-    </gradient>
-
-    <!-- Topmost border -->
-    <line color="#968a76" x1="0" x2="width" y1="0" y2="0"/>
-    <!-- Upper left Border -->
-    <line color="#968a76" x1="0" x2="4" y1="1" y2="1"/>
-    <line color="#968a76" x1="0" x2="2" y1="2" y2="2"/>
-    <line color="#968a76" x1="0" x2="1" y1="3" y2="3"/>
-    <line color="#968a76" x1="0" x2="1" y1="4" y2="4"/>
-    <line color="#968a76" x1="0" x2="0" y1="5" y2="90"/>
-	<tint color="#968a76" alpha="0.4" x="2" y="3" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="3" y="2" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="1" y="5" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="1" y="6" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="5" y="1" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="6" y="1" width="1" height="1" />
-    <!-- Upper right Border -->
-    <line color="#968a76" x1="width-5" x2="width" y1="1" y2="1"/>
-    <line color="#968a76" x1="width-3" x2="width" y1="2" y2="2"/>
-    <line color="#968a76" x1="width-2" x2="width" y1="3" y2="3"/>
-    <line color="#968a76" x1="width-2" x2="width" y1="4" y2="4"/>
-    <line color="#968a76" x1="width-1" x2="width" y1="5" y2="90"/>
-	<tint color="#968a76" alpha="0.4" x="width-3" y="3" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width-4" y="2" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width-2" y="5" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="width-2" y="6" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width-6" y="1" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="width-7" y="1" width="1" height="1" />
-
-    <!-- Top highlight -->
-    <tint color="#ffffff" alpha="0.35" x="BorderOffset + 5" y="BorderOffset" width="width - 10 - (2 * BorderOffset)" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="BorderOffset + 4" y="BorderOffset" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="width - (2 * BorderOffset) + 2" y="BorderOffset" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.10" x="BorderOffset + 4" y="BorderOffset + 1" width="width - 8 - (2 * BorderOffset)" height="1"/>
-
-    <!-- Upper-left highlight -->
-    <!-- Draw each pixel one by one. Again, using <tint> for alpha support. -->
-    <tint color="#ffffff" alpha="0.30" x="BorderOffset + 2" y="BorderOffset + 1"  width="2" height="1"/>
-    <tint color="#ffffff" alpha="0.27" x="BorderOffset + 1" y="BorderOffset + 2"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.24" x="BorderOffset + 1" y="BorderOffset + 3"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.21" x="BorderOffset" y="BorderOffset + 4"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.18" x="BorderOffset" y="BorderOffset + 5"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="BorderOffset" y="BorderOffset + 6"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.12" x="BorderOffset" y="BorderOffset + 7"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.09" x="BorderOffset" y="BorderOffset + 8"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.06" x="BorderOffset" y="BorderOffset + 9" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.03" x="BorderOffset" y="BorderOffset + 10" width="1" height="1"/>
-
-    <!-- Upper-right highlight -->
-    <!-- Same as above. -->
-    <tint color="#ffffff" alpha="0.30" x="width - 4 - BorderOffset" y="BorderOffset + 1"  width="2" height="1"/>
-    <tint color="#ffffff" alpha="0.27" x="width - 2 - BorderOffset" y="BorderOffset + 2"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.24" x="width - 2 - BorderOffset" y="BorderOffset + 3"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.21" x="width - 1 - BorderOffset" y="BorderOffset + 4"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.18" x="width - 1 - BorderOffset" y="BorderOffset + 5"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="width - 1 - BorderOffset" y="BorderOffset + 6"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.12" x="width - 1 - BorderOffset" y="BorderOffset + 7"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.09" x="width - 1 - BorderOffset" y="BorderOffset + 8"  width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.06" x="width - 1 - BorderOffset" y="BorderOffset + 9" width="1" height="1"/>
-    <tint color="#ffffff" alpha="0.03" x="width - 1 - BorderOffset" y="BorderOffset + 10" width="1" height="1"/>
-
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="width-1" x2="width-5" y1="1" y2="1"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="width-1" x2="width-3" y1="2" y2="2"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="width-1" x2="width-2" y1="3" y2="3"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="width-1" x2="width-2" y1="4" y2="4"/>
+    <line color="shade/gtk:bg[NORMAL]/0.6" x1="width-1" x2="width-1" y1="5" y2="90"/>
 </draw_ops>
 
 <draw_ops name="draw_title_maximized">
@@ -224,7 +130,7 @@
     </gradient>
 
     <!-- Topmost dark line -->
-    <line color="shade/gtk:bg[NORMAL]/0.74" x1="0" x2="width" y1="0" y2="0"/>
+    <line color="shade/gtk:bg[NORMAL]/0.7" x1="0" x2="width" y1="0" y2="0"/>
 
     <!-- Top highlight -->
     <!-- This uses <tint> (which supports alpha) instead of <line> (which doesn't) -->
@@ -232,102 +138,47 @@
     <tint color="#ffffff" alpha="0.10" x="0" y="2" width="width" height="1"/>
 </draw_ops>
 
-<draw_ops name="draw_title_maximized_inactive">
-    <!-- Background gradient -->
-    <gradient type="vertical" x="0" y="0" width="width+9" height="height">
-        <color value="shade/gtk:bg[NORMAL]/1.05" />
-        <color value="shade/gtk:bg[NORMAL]/1" />
-    </gradient>
-
-    <!-- Topmost dark line -->
-    <line color="shade/gtk:bg[NORMAL]/0.74" x1="0" x2="width" y1="0" y2="0"/>
-
-    <!-- Top highlight -->
-    <!-- This uses <tint> (which supports alpha) instead of <line> (which doesn't) -->
-    <tint color="#ffffff" alpha="0.55" x="0" y="1" width="width" height="1"/>
-    <tint color="#ffffff" alpha="0.15" x="0" y="2" width="width" height="1"/>
-</draw_ops>
-
 
 <!-- ####################################################################################################################
      The frame around windows
      #################################################################################################################### -->
 
-<draw_ops name="left_edge_active">
-    <!-- Border -->
-	<line color="#968a76" x1="0" x2="0" y1="0" y2="height" />
-</draw_ops>
-<draw_ops name="left_edge_inactive">
-    <!-- Border -->
-    <tint color="#968a76" alpha="1.0" x="0" y="0" width="1" height="height"/>
-</draw_ops>
+<draw_ops name="left_edge"><line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="0" y1="0" y2="height" /></draw_ops>
 
-<draw_ops name="right_edge_active">
-    <!-- Border -->
-	<line color="#968a76" x1="width - 1" x2="width - 1" y1="0" y2="height" />
-</draw_ops>
-<draw_ops name="right_edge_inactive">
-    <!-- Border -->
-    <tint color="#968a76" alpha="1.0" x="width - 1" y="0" width="1" height="height"/>
-</draw_ops>
+<draw_ops name="right_edge"><line color="shade/gtk:bg[NORMAL]/0.6" x1="width - 1" x2="width - 1" y1="0" y2="height" /></draw_ops>
 
-<draw_ops name="bottom_edge_active">
-    <gradient type="vertical" x="BorderOffset" y="0" width="width - (2*BorderOffset)" height="height - BorderOffset">
+<draw_ops name="bottom_edge">
+	<gradient type="vertical" x="1" y="0" width="width - 2" height="height - 1">
         <color value="gtk:bg[NORMAL]" />
         <color value="shade/gtk:bg[NORMAL]/0.985" />
         <color value="shade/gtk:bg[NORMAL]/0.95" />
     </gradient>
     <!-- Roundness -->
-	<line color="#968a76" x1="0" x2="width" y1="height - 1" y2="height - 1" />
-	<line color="#968a76" x1="0" x2="0" y1="0" y2="height-6" />
-	<line color="#968a76" x1="1" x2="1" y1="height-5" y2="height-4" />
-	<line color="#968a76" x1="2" x2="2" y1="height-3" y2="height-3" />
-	<line color="#968a76" x1="3" x2="4" y1="height-2" y2="height-2" />
-	<tint color="#968a76" alpha="0.4" x="2" y="height-4" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="3" y="height-3" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="1" y="height-6" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="1" y="height-7" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="5" y="height-2" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="6" y="height-2" width="1" height="1" />
-	<line color="#968a76" x1="width - 1" x2="width - 1" y1="0" y2="height-6" />
-	<line color="#968a76" x1="width - 2" x2="width - 2" y1="height-5" y2="height-4" />
-	<line color="#968a76" x1="width - 3" x2="width - 3" y1="height-3" y2="height-3" />
-	<line color="#968a76" x1="width - 5" x2="width - 4" y1="height-2" y2="height-2" />
-	<tint color="#968a76" alpha="0.4" x="width - 3" y="height-4" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width - 4" y="height-3" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width - 2" y="height-6" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="width - 2" y="height-7" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width - 6" y="height-2" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="width - 7" y="height-2" width="1" height="1" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="width" y1="height - 1" y2="height - 1" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="0" x2="0" y1="0" y2="height-6" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="1" x2="1" y1="height-5" y2="height-4" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="2" x2="2" y1="height-3" y2="height-3" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="3" x2="4" y1="height-2" y2="height-2" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="2" y="height-4" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="3" y="height-3" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="1" y="height-6" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.1" x="1" y="height-7" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="5" y="height-2" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.1" x="6" y="height-2" width="1" height="1" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="width - 1" x2="width - 1" y1="0" y2="height-6" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="width - 2" x2="width - 2" y1="height-5" y2="height-4" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="width - 3" x2="width - 3" y1="height-3" y2="height-3" />
+	<line color="shade/gtk:bg[NORMAL]/0.6" x1="width - 5" x2="width - 4" y1="height-2" y2="height-2" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="width - 3" y="height-4" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="width - 4" y="height-3" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="width - 2" y="height-6" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.1" x="width - 2" y="height-7" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.4" x="width - 6" y="height-2" width="1" height="1" />
+	<tint color="shade/gtk:bg[NORMAL]/0.6" alpha="0.1" x="width - 7" y="height-2" width="1" height="1" />
 </draw_ops>
-<draw_ops name="bottom_edge_inactive">
-    <gradient type="vertical" x="BorderOffset" y="0" width="width - (2*BorderOffset)" height="height - BorderOffset">
-        <color value="gtk:bg[NORMAL]" />
-        <color value="shade/gtk:bg[NORMAL]/0.975" />
-        <color value="shade/gtk:bg[NORMAL]/0.90" />
-    </gradient>
-    <!-- Roundness -->
-	<line color="#968a76" x1="0" x2="width" y1="height - 1" y2="height - 1" />
-	<line color="#968a76" x1="0" x2="0" y1="0" y2="height-6" />
-	<line color="#968a76" x1="1" x2="1" y1="height-5" y2="height-4" />
-	<line color="#968a76" x1="2" x2="2" y1="height-3" y2="height-3" />
-	<line color="#968a76" x1="3" x2="4" y1="height-2" y2="height-2" />
-	<tint color="#968a76" alpha="0.4" x="2" y="height-4" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="3" y="height-3" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="1" y="height-6" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="1" y="height-7" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="5" y="height-2" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="6" y="height-2" width="1" height="1" />
-	<line color="#968a76" x1="width - 1" x2="width - 1" y1="0" y2="height-6" />
-	<line color="#968a76" x1="width - 2" x2="width - 2" y1="height-5" y2="height-4" />
-	<line color="#968a76" x1="width - 3" x2="width - 3" y1="height-3" y2="height-3" />
-	<line color="#968a76" x1="width - 5" x2="width - 4" y1="height-2" y2="height-2" />
-	<tint color="#968a76" alpha="0.4" x="width - 3" y="height-4" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width - 4" y="height-3" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width - 2" y="height-6" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="width - 2" y="height-7" width="1" height="1" />
-	<tint color="#968a76" alpha="0.4" x="width - 6" y="height-2" width="1" height="1" />
-	<tint color="#968a76" alpha="0.1" x="width - 7" y="height-2" width="1" height="1" />
+
+<draw_ops name="bottom_edge_maximized">
+	<tint color="gtk:bg[NORMAL]" alpha="1.0" x="0" y="0" width="width" height="height"/>
 </draw_ops>
 
 
@@ -336,74 +187,213 @@
      #################################################################################################################### -->
 
 <!-- Active window - close button -->
-<draw_ops name="button_close_normal"><image filename="active_close.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_close_prelight"><image filename="active_close_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_close_pressed"><image filename="active_close_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="button_close_normal">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="0" y="0" width="width - 1" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="0" y="height - 3" width="width - 2" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="0" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_close_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="0" y="0" width="width - 1" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="0" y="height - 3" width="width - 2" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="0" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_close_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.75" alpha="1.0" x="0" y="0" width="width - 1" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.75" alpha="1.0" x="0" y="height - 3" width="width - 2" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.75" alpha="1.0" x="0" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_close.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Active dialog window - close button -->
-<draw_ops name="dialog_button_close_normal"><image filename="dialog_active_close.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_button_close_prelight"><image filename="dialog_active_close_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_button_close_pressed"><image filename="dialog_active_close_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="dialog_button_close_normal">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_button_close_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_button_close_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.75" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.75" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.75" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Active window - maximize button-->
-<draw_ops name="button_max_normal"><image filename="active_max.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_max_prelight"><image filename="active_max_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_max_pressed"><image filename="active_max_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="button_max_normal">
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="0" y="0" width="width" height="height - 1"/>
+	<image filename="button_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_max_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="0" y="0" width="width" height="height - 1"/>
+	<image filename="button_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_max_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="0" y="0" width="width" height="height - 1"/>
+	<image filename="button_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Active dialog window - maximize button-->
-<draw_ops name="dialog_button_max_normal"><image filename="dialog_active_max.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_button_max_prelight"><image filename="dialog_active_max_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_button_max_pressed"><image filename="dialog_active_max_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="dialog_button_max_normal">
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_button_max_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_button_max_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Active window - minimize button-->
-<draw_ops name="button_min_normal"><image filename="active_min.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_min_prelight"><image filename="active_min_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_min_pressed"><image filename="active_min_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="button_min_normal">
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="1" y="0" width="width - 1" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="2" y="height - 3" width="width - 2" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="3" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_min_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="1" y="0" width="width - 1" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="2" y="height - 3" width="width - 2" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="3" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_min_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="1" y="0" width="width - 1" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="2" y="height - 3" width="width - 2" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="3" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Active dialog window - minimize button-->
-<draw_ops name="dialog_button_min_normal"><image filename="dialog_active_min.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_button_min_prelight"><image filename="dialog_active_min_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_button_min_pressed"><image filename="dialog_active_min_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="dialog_button_min_normal">
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_min.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_button_min_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_min.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_button_min_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_min.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Active window - menu button -->
-<draw_ops name="button_menu_normal"><image filename="active_menu.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_menu_prelight"><image filename="active_menu_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="button_menu_pressed"><image filename="active_menu_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="button_menu_normal">
+    <tint color="shade/gtk:bg[NORMAL]/0.95" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[NORMAL]/0.95" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[NORMAL]/0.95" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="button_menu.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_menu_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/1.15" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="button_menu.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="button_menu_pressed">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="1.0" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="button_menu.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Inactive window - close button -->
-<draw_ops name="inactive_button_close_normal"><image filename="inactive_close.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_close_prelight"><image filename="inactive_close_on.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_close_pressed"><image filename="inactive_close_pressed.png" x="0" y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="inactive_button_close_normal">
+	<image filename="button_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="inactive_button_close_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="0.5" x="0" y="0" width="width - 1" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="0.5" x="0" y="height - 3" width="width - 2" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="0.5" x="0" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Inactive dialog window - close button -->
-<draw_ops name="dialog_inactive_button_close_normal"><image filename="dialog_inactive_close.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_inactive_button_close_prelight"><image filename="dialog_inactive_close_on.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_inactive_button_close_pressed"><image filename="dialog_inactive_close_pressed.png" x="0" y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="dialog_inactive_button_close_normal">
+	<image filename="dialog_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_inactive_button_close_prelight">
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="0.5" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="0.5" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="shade/gtk:bg[SELECTED]/0.85" alpha="0.5" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_close.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Inactive window - maximize button-->
-<draw_ops name="inactive_button_max_normal"><image filename="inactive_max.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_max_prelight"><image filename="inactive_max_on.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_max_pressed"><image filename="inactive_max_pressed.png" x="0" y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="inactive_button_max_normal">
+	<image filename="button_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="inactive_button_max_prelight">
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="0" y="0" width="width" height="height - 1"/>
+	<image filename="button_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Inactive dialog window - maximize button-->
-<draw_ops name="dialog_inactive_button_max_normal"><image filename="dialog_inactive_max.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_inactive_button_max_prelight"><image filename="dialog_inactive_max_on.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_inactive_button_max_pressed"><image filename="dialog_inactive_max_pressed.png" x="0" y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="dialog_inactive_button_max_normal">
+	<image filename="dialog_max.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_inactive_button_max_prelight">
+	<image filename="dialog_max.png" x="0" y="0" width="width" height="height"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="3" y="height - 2" width="width - 6" height="1"/>
+</draw_ops>
 
 <!-- Inactive window - minimize button-->
-<draw_ops name="inactive_button_min_normal"><image filename="inactive_min.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_min_prelight"><image filename="inactive_min_on.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_min_pressed"><image filename="inactive_min_pressed.png" x="0" y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="inactive_button_min_normal">
+	<image filename="button_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="inactive_button_min_prelight">
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="1" y="0" width="width - 1" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="2" y="height - 3" width="width - 2" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="3" y="height - 2" width="width - 3" height="1"/>
+	<image filename="button_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Inactive dialog window - minimize button-->
-<draw_ops name="dialog_inactive_button_min_normal"><image filename="dialog_inactive_min.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_inactive_button_min_prelight"><image filename="dialog_inactive_min_on.png" x="0" y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="dialog_inactive_button_min_pressed"><image filename="dialog_inactive_min_pressed.png" x="0" y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="dialog_inactive_button_min_normal">
+	<image filename="dialog_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="dialog_inactive_button_min_prelight">
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="dialog_min.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
 
 <!-- Inactive window - menu button -->
-<draw_ops name="inactive_button_menu_normal"><image filename="inactive_menu.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_menu_prelight"><image filename="inactive_menu_on.png" x="0"	y="0" width="width" height="height"/></draw_ops>
-<draw_ops name="inactive_button_menu_pressed"><image filename="inactive_menu_pressed.png" x="0"	y="0" width="width" height="height"/></draw_ops>
+<draw_ops name="inactive_button_menu_normal">
+	<image filename="button_menu.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
+<draw_ops name="inactive_button_menu_prelight">
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="1" y="0" width="width - 2" height="height - 3"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="2" y="height - 3" width="width - 4" height="1"/>
+    <tint color="gtk:bg[SELECTED]" alpha="0.5" x="3" y="height - 2" width="width - 6" height="1"/>
+	<image filename="button_menu.png" x="0"	y="0" width="width" height="height"/>
+</draw_ops>
 
 
 <!-- ####################################################################################################################
@@ -414,9 +404,9 @@
 <frame_style name="frame_style_normal_focused" geometry="frame_geometry_normal">
 	<piece position="title" draw_ops="draw_title_text_normal"/>
 	<piece position="titlebar" draw_ops="draw_title"/>
-	<piece position="left_edge" draw_ops="left_edge_active"/>
-	<piece position="right_edge" draw_ops="right_edge_active"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_active"/>
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge"/>
 	<button function="close" state="normal" draw_ops="button_close_normal"/>
 	<button function="close" state="prelight" draw_ops="button_close_prelight"/>
 	<button function="close" state="pressed" draw_ops="button_close_pressed"/>
@@ -429,70 +419,34 @@
 	<button function="menu" state="normal" draw_ops="button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="button_menu_prelight"/>
 	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style name="frame_style_normal_unfocused" geometry="frame_geometry_normal">
 	<piece position="title" draw_ops="draw_title_text_inactive"/>
-	<piece position="titlebar" draw_ops="draw_title_inactive"/>
-	<piece position="left_edge" draw_ops="left_edge_inactive"/>
-	<piece position="right_edge" draw_ops="right_edge_inactive"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_inactive"/>
+	<piece position="titlebar" draw_ops="draw_title"/>
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge"/>
 	<button function="close" state="normal" draw_ops="inactive_button_close_normal"/>
 	<button function="close" state="prelight" draw_ops="inactive_button_close_prelight"/>
-	<button function="close" state="pressed" draw_ops="inactive_button_close_pressed"/>
+	<button function="close" state="pressed" draw_ops="button_close_pressed"/>
 	<button function="minimize" state="normal" draw_ops="inactive_button_min_normal"/>
 	<button function="minimize" state="prelight" draw_ops="inactive_button_min_prelight"/>
-	<button function="minimize" state="pressed" draw_ops="inactive_button_min_pressed"/>
+	<button function="minimize" state="pressed" draw_ops="button_min_pressed"/>
 	<button function="maximize" state="normal" draw_ops="inactive_button_max_normal"/>
 	<button function="maximize" state="prelight" draw_ops="inactive_button_max_prelight"/>
-	<button function="maximize" state="pressed" draw_ops="inactive_button_max_pressed"/>
+	<button function="maximize" state="pressed" draw_ops="button_max_pressed"/>
 	<button function="menu" state="normal" draw_ops="inactive_button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="menu" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
+	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style name="frame_style_normal_focused2" geometry="frame_geometry_normal">
 	<piece position="title" draw_ops="draw_title_text_normal"/>
 	<piece position="titlebar" draw_ops="draw_title"/>
-	<piece position="left_edge" draw_ops="left_edge_active"/>
-	<piece position="right_edge" draw_ops="right_edge_active"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_active"/>
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge"/>
 	<button function="close" state="normal" draw_ops="dialog_button_close_normal"/>
 	<button function="close" state="prelight" draw_ops="dialog_button_close_prelight"/>
 	<button function="close" state="pressed" draw_ops="dialog_button_close_pressed"/>
@@ -505,71 +459,35 @@
 	<button function="menu" state="normal" draw_ops="button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="button_menu_prelight"/>
 	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style name="frame_style_normal_unfocused2" geometry="frame_geometry_normal">
 	<piece position="title" draw_ops="draw_title_text_inactive"/>
-	<piece position="titlebar" draw_ops="draw_title_inactive"/>
-	<piece position="left_edge" draw_ops="left_edge_inactive"/>
-	<piece position="right_edge" draw_ops="right_edge_inactive"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_inactive"/>
-	<button function="close" state="normal" draw_ops="dialog_inactive_button_close_normal"/>
-	<button function="close" state="prelight" draw_ops="dialog_inactive_button_close_prelight"/>
-	<button function="close" state="pressed" draw_ops="dialog_inactive_button_close_pressed"/>
-	<button function="minimize" state="normal" draw_ops="dialog_inactive_button_min_normal"/>
-	<button function="minimize" state="prelight" draw_ops="dialog_inactive_button_min_prelight"/>
-	<button function="minimize" state="pressed" draw_ops="dialog_inactive_button_min_pressed"/>
-	<button function="maximize" state="normal" draw_ops="dialog_inactive_button_max_normal"/>
-	<button function="maximize" state="prelight" draw_ops="dialog_inactive_button_max_prelight"/>
-	<button function="maximize" state="pressed" draw_ops="dialog_inactive_button_max_pressed"/>
+	<piece position="titlebar" draw_ops="draw_title"/>
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge"/>
+	<button function="close" state="normal" draw_ops="dialog_button_close_normal"/>
+	<button function="close" state="prelight" draw_ops="dialog_button_close_prelight"/>
+	<button function="close" state="pressed" draw_ops="dialog_button_close_pressed"/>
+	<button function="minimize" state="normal" draw_ops="dialog_button_min_normal"/>
+	<button function="minimize" state="prelight" draw_ops="dialog_button_min_prelight"/>
+	<button function="minimize" state="pressed" draw_ops="dialog_button_min_pressed"/>
+	<button function="maximize" state="normal" draw_ops="dialog_button_max_normal"/>
+	<button function="maximize" state="prelight" draw_ops="dialog_button_max_prelight"/>
+	<button function="maximize" state="pressed" draw_ops="dialog_button_max_pressed"/>
 	<button function="menu" state="normal" draw_ops="inactive_button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="menu" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
+	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <!-- maximized -->
 <frame_style name="frame_style_maximized_focused" geometry="frame_geometry_maximized">
 	<piece position="title" draw_ops="draw_title_text_normal"/>
 	<piece position="titlebar" draw_ops="draw_title_maximized"/>
-	<piece position="left_edge" draw_ops="left_edge_active"/>
-	<piece position="right_edge" draw_ops="right_edge_active"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_active"/>	
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge_maximized"/>
 	<button function="close" state="normal" draw_ops="button_close_normal"/>
 	<button function="close" state="prelight" draw_ops="button_close_prelight"/>
 	<button function="close" state="pressed" draw_ops="button_close_pressed"/>
@@ -582,70 +500,34 @@
 	<button function="menu" state="normal" draw_ops="button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="button_menu_prelight"/>
 	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style name="frame_style_maximized_unfocused" geometry="frame_geometry_maximized">
 	<piece position="title" draw_ops="draw_title_text_inactive"/>
-	<piece position="titlebar" draw_ops="draw_title_maximized_inactive"/>
-	<piece position="left_edge" draw_ops="left_edge_inactive"/>
-	<piece position="right_edge" draw_ops="right_edge_inactive"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_inactive"/>
+	<piece position="titlebar" draw_ops="draw_title_maximized"/>
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge_maximized"/>
 	<button function="close" state="normal" draw_ops="inactive_button_close_normal"/>
 	<button function="close" state="prelight" draw_ops="inactive_button_close_prelight"/>
-	<button function="close" state="pressed" draw_ops="inactive_button_close_pressed"/>
+	<button function="close" state="pressed" draw_ops="button_close_pressed"/>
 	<button function="minimize" state="normal" draw_ops="inactive_button_min_normal"/>
 	<button function="minimize" state="prelight" draw_ops="inactive_button_min_prelight"/>
-	<button function="minimize" state="pressed" draw_ops="inactive_button_min_pressed"/>
+	<button function="minimize" state="pressed" draw_ops="button_min_pressed"/>
 	<button function="maximize" state="normal" draw_ops="inactive_button_max_normal"/>
 	<button function="maximize" state="prelight" draw_ops="inactive_button_max_prelight"/>
-	<button function="maximize" state="pressed" draw_ops="inactive_button_max_pressed"/>
+	<button function="maximize" state="pressed" draw_ops="button_max_pressed"/>
 	<button function="menu" state="normal" draw_ops="inactive_button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="menu" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
+	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style name="frame_style_maximized_focused2" geometry="frame_geometry_maximized">
 	<piece position="title" draw_ops="draw_title_text_normal"/>
 	<piece position="titlebar" draw_ops="draw_title_maximized"/>
-	<piece position="left_edge" draw_ops="left_edge_active"/>
-	<piece position="right_edge" draw_ops="right_edge_active"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_active"/>	
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge_maximized"/>
 	<button function="close" state="normal" draw_ops="dialog_button_close_normal"/>
 	<button function="close" state="prelight" draw_ops="dialog_button_close_prelight"/>
 	<button function="close" state="pressed" draw_ops="dialog_button_close_pressed"/>
@@ -658,62 +540,26 @@
 	<button function="menu" state="normal" draw_ops="button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="button_menu_prelight"/>
 	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style name="frame_style_maximized_unfocused2" geometry="frame_geometry_maximized">
 	<piece position="title" draw_ops="draw_title_text_inactive"/>
-	<piece position="titlebar" draw_ops="draw_title_maximized_inactive"/>
-	<piece position="left_edge" draw_ops="left_edge_inactive"/>
-	<piece position="right_edge" draw_ops="right_edge_inactive"/>
-	<piece position="bottom_edge" draw_ops="bottom_edge_inactive"/>
-	<button function="close" state="normal" draw_ops="dialog_inactive_button_close_normal"/>
-	<button function="close" state="prelight" draw_ops="dialog_inactive_button_close_prelight"/>
-	<button function="close" state="pressed" draw_ops="dialog_inactive_button_close_pressed"/>
-	<button function="minimize" state="normal" draw_ops="dialog_inactive_button_min_normal"/>
-	<button function="minimize" state="prelight" draw_ops="dialog_inactive_button_min_prelight"/>
-	<button function="minimize" state="pressed" draw_ops="dialog_inactive_button_min_pressed"/>
-	<button function="maximize" state="normal" draw_ops="dialog_inactive_button_max_normal"/>
-	<button function="maximize" state="prelight" draw_ops="dialog_inactive_button_max_prelight"/>
-	<button function="maximize" state="pressed" draw_ops="dialog_inactive_button_max_pressed"/>
+	<piece position="titlebar" draw_ops="draw_title_maximized"/>
+	<piece position="left_edge" draw_ops="left_edge"/>
+	<piece position="right_edge" draw_ops="right_edge"/>
+	<piece position="bottom_edge" draw_ops="bottom_edge_maximized"/>
+	<button function="close" state="normal" draw_ops="dialog_button_close_normal"/>
+	<button function="close" state="prelight" draw_ops="dialog_button_close_prelight"/>
+	<button function="close" state="pressed" draw_ops="dialog_button_close_pressed"/>
+	<button function="minimize" state="normal" draw_ops="dialog_button_min_normal"/>
+	<button function="minimize" state="prelight" draw_ops="dialog_button_min_prelight"/>
+	<button function="minimize" state="pressed" draw_ops="dialog_button_min_pressed"/>
+	<button function="maximize" state="normal" draw_ops="dialog_button_max_normal"/>
+	<button function="maximize" state="prelight" draw_ops="dialog_button_max_prelight"/>
+	<button function="maximize" state="pressed" draw_ops="dialog_button_max_pressed"/>
 	<button function="menu" state="normal" draw_ops="inactive_button_menu_normal"/>
 	<button function="menu" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="menu" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="shade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="shade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="shade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unshade" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unshade" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unshade" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="above" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="above" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="above" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unabove" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unabove" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unabove" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="stick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="stick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="stick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
-	<button function="unstick" state="normal" draw_ops="inactive_button_menu_normal"/>
-	<button function="unstick" state="prelight" draw_ops="inactive_button_menu_prelight"/>
-	<button function="unstick" state="pressed" draw_ops="inactive_button_menu_pressed"/>
+	<button function="menu" state="pressed" draw_ops="button_menu_pressed"/>
 </frame_style>
 
 <frame_style_set name="frame_style_set_normal">

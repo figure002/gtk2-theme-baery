@@ -402,6 +402,14 @@ widget "*MediaApplet*"			style "theme-panel" # Workaround for Media applet
 class "PanelApp*" 				style "theme-panel"
 class "PanelToplevel*" 			style "theme-panel"
 
+#XFCE panel
+widget_class "*notif*"			style "theme-panel"
+widget_class "*Notif*"			style "theme-panel"
+widget_class "*Tray*"			style "theme-panel"
+widget_class "*tray*"			style "theme-panel"
+widget "*Xfce*Panel*"			style "theme-panel"
+class "*Xfce*Panel*"			style "theme-panel"
+
 #######################################################
 ##  GNOME specific
 #######################################################
